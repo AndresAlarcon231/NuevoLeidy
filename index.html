@@ -488,8 +488,11 @@ footer{ margin-top:10px; font-size:8px; color:#9ca3af; text-align:center; }
     <div class="congrats-top">
       <div class="congrats-pill">¡Logro conseguido!</div>
       <!-- ÚNICO CAMBIO: onclick inline -->
-      <button class="congrats-close" id="congratsClose" aria-label="Cerrar"
-              onclick="var el=document.getElementById('congratsOverlay'); if(el){ el.parentNode.removeChild(el); }">✕</button>
+      <button class="congrats-close" id="congratsClose"
+        onclick="document.getElementById('congratsOverlay').remove();">
+  Volver a la página
+</button>
+
     </div>
 
     <div class="congrats-heart">🏆</div>
