@@ -433,35 +433,9 @@ footer{ margin-top:10px; font-size:8px; color:#9ca3af; text-align:center; }
   color:#fb7185;
 }
 
-/* ⬇️ ÚNICO CAMBIO: onclick que elimina el overlay */
-.congrats-close{
-  border:none; background:rgba(255,255,255,0.9);
-  border:1px solid rgba(148,163,184,0.75);
-  width:26px; height:26px; border-radius:999px; cursor:pointer;
-  font-size:14px; display:grid; place-items:center; color:#6b7280;
-  transition: transform .15s ease;
-}
-.congrats-close:hover{ transform:scale(1.05); }
-
-.congrats-heart{
-  font-size:28px; text-align:center; margin:10px 0 6px;
-  animation:heartbeatHero 1.6s ease-in-out infinite;
-}
-
-.congrats-title{
-  text-align:center; font-size:clamp(18px,5vw,22px); font-weight:700; color:#111827;
-  background:linear-gradient(135deg,#fb7185,#a855f7,#38bdf8);
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-}
-
-.congrats-sub{
-  text-align:center; margin-top:6px; font-size:10px; color:#374151; line-height:1.6;
-}
-
-.congrats-note{
-  margin-top:10px; font-size:9px; color:#9f1239; text-align:center;
-  background:rgba(255,255,255,0.8); border:1px solid rgba(248,113,113,0.5);
-  border-radius:12px; padding:6px 8px;
+/* Botón de volver en la tarjeta (reutiliza estilo back-btn) */
+.congrats-actions{
+  display:flex; justify-content:center; margin-top:12px;
 }
 </style>
 </head>
@@ -487,12 +461,7 @@ footer{ margin-top:10px; font-size:8px; color:#9ca3af; text-align:center; }
 
     <div class="congrats-top">
       <div class="congrats-pill">¡Logro conseguido!</div>
-      <!-- ÚNICO CAMBIO: onclick inline -->
-      <button class="congrats-close" id="congratsClose"
-        onclick="document.getElementById('congratsOverlay').remove();">
-  Volver a la página
-</button>
-
+      <!-- (sin botón X) -->
     </div>
 
     <div class="congrats-heart">🏆</div>
@@ -503,6 +472,13 @@ footer{ margin-top:10px; font-size:8px; color:#9ca3af; text-align:center; }
     </p>
     <div class="congrats-note">
       Pequeño recordatorio: celebra, respira y date un abrazo. Te lo mereces.
+    </div>
+
+    <!-- Botón de volver (abajo) -->
+    <div class="congrats-actions">
+      <button class="back-btn" id="congratsClose" onclick="document.getElementById('congratsOverlay').remove();">
+        <span class="icon">⟵</span> Volver a la página
+      </button>
     </div>
   </div>
 </div>
@@ -965,7 +941,7 @@ const messagesShell=document.getElementById("messagesShell");
 const enterBtn=document.getElementById("enterBtn");
 const backBtn=document.getElementById("backBtn");
 
-/* NUEVO: referencias del aviso de felicitación */
+/* AVISO: referencias */
 const congratsOverlay = document.getElementById("congratsOverlay");
 const congratsClose = document.getElementById("congratsClose");
 
@@ -1132,10 +1108,10 @@ backBtn.onclick=()=>{
 
 build();
 
-/* LÓGICA previa del aviso (la dejo, pero la X ya funciona con el onclick) */
+/* Cierre del aviso (abajo): mantiene compatibilidad si JS está deshabilitado */
 if (congratsClose && congratsOverlay) {
   congratsClose.addEventListener('click', ()=> {
-    congratsOverlay.style.display = 'none';
+    congratsOverlay.remove();
   });
 }
 </script>
