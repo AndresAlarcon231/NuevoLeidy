@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Para Leidy, un día a la vez ♡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+:root {
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --accent: #fb7185;
+  --accent-alt: #38bdf8;
+  --accent-strong: #a855f7;
+  --accent-soft: #f97316;
+  --text: #111827;
+  --muted: #6b7280;
+  --radius-xl: 26px;
+  --radius: 18px;
+  --font: system-ui, -apple-system, BlinkMacSystemFont, -system-ui, sans-serif;
+  --shadow-strong: 0 24px 60px rgba(248,113,113,0.25);
+  --shadow-soft: 0 14px 35px rgba(248,113,113,0.18);
+  --transition: 0.26s ease;
+}
+
+* {margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px 10px;
+  background:
+    radial-gradient(circle at top left,rgba(251,113,133,0.18),transparent 55%),
+    radial-gradient(circle at top right,rgba(244,114,182,0.15),transparent 55%),
+    radial-gradient(circle at bottom,rgba(129,140,248,0.12),transparent 60%),
+    #ffffff;
+  color:var(--text);
+  font-family:var(--font);
+  overflow-x:hidden;
+  position:relative;
+  transition:background 0.6s ease;
+}
+
+body.mode-messages{
+  background:
+    radial-gradient(circle at top,rgba(251,207,232,0.75),transparent 60%),
+    radial-gradient(circle at bottom,rgba(191,219,254,0.6),transparent 60%),
+    #ffffff;
+}
+
+/* Corazones flotando */
+.floating-hearts{
+  position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0;
+}
+.floating-hearts span{
+  position:absolute; font-size:16px; opacity:0.13; animation:floatUp 18s linear infinite; color:#fb7185;
+}
+.floating-hearts span:nth-child(1){left:8%;bottom:-10%;animation-duration:19s;}
+.floating-hearts span:nth-child(2){left:22%;bottom:-18%;animation-duration:21s;font-size:18px;}
+.floating-hearts span:nth-child(3){left:40%;bottom:-16%;animation-duration:20s;}
+.floating-hearts span:nth-child(4){left:60%;bottom:-14%;animation-duration:22s;font-size:15px;}
+.floating-hearts span:nth-child(5){left:78%;bottom:-20%;animation-duration:24s;}
+.floating-hearts span:nth-child(6){left:90%;bottom:-15%;animation-duration:23s;font-size:19px;}
+
+@keyframes floatUp{
+  0%{transform:translateY(0) translateX(0) scale(1);}
+  50%{transform:translateY(-50vh) translateX(10px) scale(1.15);opacity:0.35;}
+  100%{transform:translateY(-95vh) translateX(-6px) scale(1);opacity:0;}
+}
+
+.wrap{ width:100%; max-width:520px; position:relative; z-index:1; }
+
+/* ---------- HERO ---------- */
+.hero{
+  background:linear-gradient(145deg,#ffffff,#fff1f2);
+  border-radius:var(--radius-xl);
+  padding:18px 16px 16px;
+  box-shadow:var(--shadow-strong);
+  border:1px solid rgba(251,113,133,0.35);
+  backdrop-filter:blur(18px);
+  display:flex; flex-direction:column; gap:14px; align-items:stretch;
+  animation:fadeHero 0.7s ease-out;
+}
+@keyframes fadeHero{ from{opacity:0;transform:translateY(12px) scale(0.97);} to{opacity:1;transform:translateY(0) scale(1);} }
+
+.hero-top{ display:flex; flex-direction:column; gap:8px; }
+.hero-left-title{ font-size:9px; text-transform:uppercase; letter-spacing:0.18em; color:#9ca3af; display:flex; align-items:center; gap:6px; }
+.hero-dot{ width:7px; height:7px; border-radius:999px; background:linear-gradient(135deg,#fb7185,#a855f7); box-shadow:0 0 10px rgba(248,113,113,0.7); }
+
+.hero h1{ font-size:clamp(22px,6vw,26px); line-height:1.2; font-weight:600; color:#111827; }
+.hero h1 span{ background:linear-gradient(135deg,#fb7185,#f97316,#22c55e); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+.hero-subtitle{ margin-top:4px; font-size:11px; color:#4b5563; }
+.hero-subtitle strong{ color:#111827; }
+.hero-note{ margin-top:4px; font-size:9px; color:#6b7280; }
+
+.hero-pills{ margin-top:8px; display:flex; flex-wrap:wrap; gap:7px; font-size:8px; }
+.hero-pill{ border-radius:999px; padding:4px 9px; border:1px solid rgba(248,113,113,0.35); background:rgba(255,255,255,0.9); display:inline-flex; align-items:center; gap:5px; box-shadow:0 6px 16px rgba(248,113,113,0.12); }
+.hero-pill span.icon{ font-size:10px; }
+
+.hero-card{
+  margin-top:4px; width:100%;
+  background:radial-gradient(circle at top,#ffe4e6,#fef9c3);
+  border-radius:22px; padding:12px 11px; border:1px solid rgba(251,113,133,0.55);
+  box-shadow:0 18px 40px rgba(248,113,113,0.22); position:relative; overflow:hidden;
+}
+.hero-card::before{
+  content:""; position:absolute; width:160px; height:160px; border-radius:999px;
+  background:radial-gradient(circle,rgba(244,114,182,0.9),transparent 70%);
+  top:-70px; right:-60px; opacity:0.3;
+}
+.hero-card::after{
+  content:""; position:absolute; width:140px; height:140px; border-radius:999px;
+  background:radial-gradient(circle,rgba(129,140,248,0.9),transparent 70%);
+  bottom:-60px; left:-40px; opacity:0.22;
+}
+
+.hero-mini-header{ display:flex; align-items:center; justify-content:space-between; font-size:8px; color:#4b5563; margin-bottom:6px; }
+.hero-mini-tag{ padding:2px 7px; border-radius:999px; border:1px solid rgba(248,113,113,0.6); background:rgba(255,255,255,0.9); font-size:7px; }
+
+.hero-heart-big{ font-size:32px; text-align:center; margin:4px 0; animation:heartbeatHero 1.6s ease-in-out infinite; }
+@keyframes heartbeatHero{ 0%{transform:scale(1);} 20%{transform:scale(1.25);} 40%{transform:scale(1);} 60%{transform:scale(1.18);} 100%{transform:scale(1);} }
+
+.hero-message-preview{ font-size:8px; color:#374151; text-align:center; margin-top:4px; line-height:1.6; }
+.hero-message-preview strong{ color:#111827; }
+
+.hero-day-indicator{ margin-top:8px; font-size:8px; display:flex; justify-content:center; gap:4px; color:#4b5563; }
+.hero-day-pill{ padding:2px 6px; border-radius:999px; border:1px solid rgba(248,250,252,0.8); background:rgba(255,255,255,0.9); }
+
+.hero-actions{ margin-top:10px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; }
+.hero-btn-primary{
+  border:none; outline:none; border-radius:999px; padding:8px 18px; font-size:10px; font-weight:500; cursor:pointer;
+  background:linear-gradient(135deg,#fb7185,#a855f7); color:white;
+  box-shadow:0 10px 30px rgba(248,113,113,0.4), 0 0 24px rgba(168,85,247,0.4);
+  display:inline-flex; align-items:center; gap:6px; transition:transform 0.2s ease,box-shadow 0.2s ease;
+}
+.hero-btn-primary:hover{ transform:translateY(-1px) translateZ(0); box-shadow:0 14px 32px rgba(248,113,113,0.6), 0 0 30px rgba(168,85,247,0.5); }
+.hero-btn-secondary{ border-radius:999px; padding:6px 10px; font-size:9px; border:1px solid rgba(248,113,113,0.35); background:rgba(255,255,255,0.9); color:#6b7280; }
+.hero.hide{ display:none; }
+
+/* ---------- MENSAJES ---------- */
+.shell.messages{
+  margin-top:12px; background:linear-gradient(145deg,#ffffff,#fef2ff);
+  border-radius:var(--radius-xl); padding:18px 14px 14px; box-shadow:var(--shadow-soft);
+  border:1px solid rgba(244,114,182,0.45); backdrop-filter:blur(16px); display:none;
+}
+.shell.messages.active{ display:block; animation:fadeMessages 0.5s ease-out; }
+@keyframes fadeMessages{ from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+
+.messages-header{ display:flex; flex-direction:column; gap:4px; }
+.messages-title{ font-size:clamp(18px,4vw,22px); font-weight:600; color:#111827; }
+.messages-title span{ color:var(--accent); }
+.messages-subtitle{ font-size:10px; color:#6b7280; }
+.messages-helper{ font-size:9px; color:#4b5563; }
+
+.legend{ display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; font-size:8px; color:var(--muted); }
+.legend-item{ display:inline-flex; align-items:center; gap:4px; }
+.legend-dot{ width:8px; height:8px; border-radius:999px; }
+.legend-dot.pink{background:linear-gradient(135deg,#fb7185,#f97373);}
+.legend-dot.gray{background:#d1d5db;}
+.legend-dot.special{background:linear-gradient(135deg,#22c55e,#a855f7);}
+
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; margin-top:14px; }
+
+/* Fichas generales */
+.day{
+  position:relative; padding:9px; border-radius:16px;
+  border:1px solid rgba(244,114,182,0.45);
+  background:radial-gradient(circle at top,#fff7fb,#fefce8);
+  box-shadow:0 10px 22px rgba(248,113,113,0.18);
+  font-size:8px; transition:var(--transition); cursor:pointer; overflow:hidden;
+}
+
+/* Día 9 especial */
+.day.special-9{
+  background:linear-gradient(145deg,#fee2e2,#fdf2ff);
+  border-color:rgba(248,113,113,0.9);
+  box-shadow:0 16px 30px rgba(248,113,113,0.35);
+  transform:translateY(0);
+}
+.day.special-9 .day-inner{ background:rgba(255,255,255,0.98); border-radius:18px; padding:8px; }
+.day.special-9 .day-label{ color:#db2777; font-size:8.5px; }
+.day.special-9 .day-preview{ color:#b91c1c; font-weight:500; font-size:7.5px; }
+.day.special-9 .day-status{ color:#fb7185; font-weight:600; }
+.day.special-9::after{ content:"💌"; position:absolute; top:4px; right:8px; font-size:12px; opacity:0.9; }
+
+/* Día 11 especial */
+.day.special-11{
+  background:linear-gradient(145deg,#fee2e2,#fdf2ff);
+  border-color:rgba(248,113,113,0.9);
+  box-shadow:0 16px 30px rgba(248,113,113,0.35);
+  transform:translateY(0);
+}
+.day.special-11 .day-inner{ background:rgba(255,255,255,0.98); border-radius:18px; padding:8px; }
+.day.special-11 .day-label{ color:#db2777; font-size:8.5px; }
+.day.special-11 .day-preview{ color:#b91c1c; font-weight:500; font-size:7.5px; }
+.day.special-11 .day-status{ color:#fb7185; font-weight:600; }
+.day.special-11::after{ content:"💌"; position:absolute; top:4px; right:8px; font-size:12px; opacity:0.9; }
+
+/* Día 12 especial */
+.day.special-12{
+  background:linear-gradient(145deg,#fee2e2,#fdf2ff);
+  border-color:rgba(248,113,113,0.9);
+  box-shadow:0 16px 30px rgba(248,113,113,0.35);
+  transform:translateY(0);
+}
+.day.special-12 .day-inner{ background:rgba(255,255,255,0.98); border-radius:18px; padding:8px; }
+.day.special-12 .day-label{ color:#db2777; font-size:8.5px; }
+.day.special-12 .day-preview{ color:#b91c1c; font-weight:500; font-size:7.5px; }
+.day.special-12 .day-status{ color:#fb7185; font-weight:600; }
+.day.special-12::after{ content:"💌"; position:absolute; top:4px; right:8px; font-size:12px; opacity:0.9; }
+
+/* halo desbloqueadas */
+.day.unlocked::before{
+  content:""; position:absolute; inset:-1px; border-radius:inherit;
+  background:conic-gradient(from 140deg, rgba(248,113,113,0.65), rgba(236,72,153,0.7), rgba(129,140,248,0.75), rgba(248,113,113,0.65));
+  opacity:0; transition:opacity 0.3s ease; z-index:-1;
+}
+
+/* decor por defecto */
+.day::after{ content:"♥"; position:absolute; top:5px; right:8px; font-size:10px; opacity:0.4; color:#fb7185; }
+
+.day-inner{ position:relative; z-index:1; border-radius:12px; padding:6px; background:rgba(255,255,255,0.92); }
+
+.day.locked{ opacity:0.5; cursor:default; }
+.day.locked::after{ content:"🔒"; font-size:9px; opacity:0.7; color:#9ca3af; }
+
+.day.unlocked:hover{ transform:translateY(-3px) translateZ(0); box-shadow:0 14px 26px rgba(248,113,113,0.28); border-color:rgba(248,113,113,0.9); }
+.day.unlocked:hover::before{ opacity:0.7; }
+
+.day-label{ font-size:8px; color:#ec4899; margin-bottom:3px; font-weight:700; }
+.day-preview{ font-size:7px; color:#6b7280; margin-bottom:4px; }
+.day-status{ font-size:7px; color:#fb7185; }
+.day.locked .day-status{ color:#9ca3af; }
+
+/* volver */
+.back-btn{
+  margin-top:12px; display:inline-flex; align-items:center; gap:6px;
+  padding:6px 12px; border-radius:999px; border:1px solid rgba(148,163,184,0.8);
+  background:rgba(255,255,255,0.95); font-size:9px; color:#4b5563; cursor:pointer;
+  box-shadow:0 6px 14px rgba(148,163,184,0.25);
+}
+.back-btn span.icon{ font-size:10px; }
+
+footer{ margin-top:10px; font-size:8px; color:#9ca3af; text-align:center; }
+
+/* ---------- MODAL ---------- */
+.overlay{ position:fixed; inset:0; background:rgba(0,0,0,0.9); display:none; align-items:center; justify-content:center; z-index:10; }
+
+.overlay.special-6{
+  background:
+    radial-gradient(circle at top, rgba(251,113,133,0.22), transparent 55%),
+    radial-gradient(circle at bottom, rgba(56,189,248,0.12), transparent 60%),
+    rgba(0,0,0,0.92);
+}
+.overlay.special-7{
+  background:
+    radial-gradient(circle at top, rgba(56,189,248,0.22), transparent 55%),
+    radial-gradient(circle at bottom, rgba(251,113,133,0.16), transparent 60%),
+    rgba(0,0,0,0.92);
+}
+.overlay.special-8{
+  background:
+    radial-gradient(circle at top, rgba(34,197,94,0.24), transparent 55%),
+    radial-gradient(circle at bottom, rgba(45,212,191,0.16), transparent 60%),
+    rgba(0,0,0,0.92);
+}
+
+.overlay.light-overlay{
+  background:
+    radial-gradient(circle at top,rgba(255,237,213,0.95),transparent 70%),
+    radial-gradient(circle at bottom,rgba(254,226,226,0.95),transparent 70%),
+    rgba(255,255,255,0.98);
+}
+.overlay.active{ display:flex; }
+
+.modal{
+  width:min(480px,92vw); max-height:80vh; background:#050816; border-radius:22px; padding:14px;
+  color:#e5e7eb; border:1px solid rgba(148,163,253,0.26); box-shadow:0 26px 70px rgba(0,0,0,1);
+  display:flex; flex-direction:column; overflow:hidden; backdrop-filter:blur(24px);
+}
+
+.modal.light-modal{
+  background:linear-gradient(145deg,#ffffff,#fff1f2);
+  border-color:rgba(248,113,113,0.6);
+  box-shadow:0 24px 60px rgba(248,113,113,0.35);
+  color:#374151;
+}
+.modal.light-modal .modal-day{ color:#fb7185; }
+.modal.light-modal .modal-title{ color:#111827; }
+.modal.light-modal .modal-text{ color:#4b5563; }
+
+.modal-day{ font-size:9px; color:var(--accent-alt); }
+.modal-title{ font-size:12px; margin-top:2px; color:#f9fafb; }
+
+.modal-text{
+  margin-top:5px; font-size:9px; color:#cbd5f5; line-height:1.7; white-space:pre-line;
+  flex:1; overflow-y:auto; padding-right:4px; scrollbar-width:none; -ms-overflow-style:none;
+}
+.modal-text::-webkit-scrollbar{ width:0; height:0; }
+
+.modal-text.special-6-text{ opacity:0; animation:fadeInText 0.9s ease forwards; }
+.modal-text.special-7-text{ opacity:0; animation:fadeInText7 1.1s ease forwards; }
+.modal-text.special-8-text{ opacity:0; animation:fadeInText8 1.05s ease forwards; }
+@keyframes fadeInText{ from{opacity:0;transform:translateY(4px);} to{opacity:1;transform:translateY(0);} }
+@keyframes fadeInText7{ from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
+@keyframes fadeInText8{ from{opacity:0;transform:translateY(5px);} to{opacity:1;transform:translateY(0);} }
+
+.heart-6,.heart-7,.heart-8{ text-align:center; font-size:26px; margin-bottom:4px; }
+.heart-7,.heart-8{ font-size:24px; }
+.heart-6{ animation:heartbeat 1.3s ease-in-out infinite; }
+.heart-7{ animation:heartbeat7 1.5s ease-in-out infinite; }
+.heart-8{ animation:heartbeat8 1.6s ease-in-out infinite; }
+@keyframes heartbeat{ 0%{transform:scale(1);} 20%{transform:scale(1.25);} 35%{transform:scale(1);} 55%{transform:scale(1.18);} 100%{transform:scale(1);} }
+@keyframes heartbeat7{ 0%{transform:scale(1);} 15%{transform:scale(1.2);} 30%{transform:scale(1);} 55%{transform:scale(1.18);} 80%{transform:scale(1);} 100%{transform:scale(1);} }
+@keyframes heartbeat8{ 0%{transform:scale(1);} 18%{transform:scale(1.22);} 35%{transform:scale(1);} 60%{transform:scale(1.16);} 100%{transform:scale(1);} }
+
+.doodles-6,.doodles-7,.doodles-8{ text-align:center; font-size:10px; margin-bottom:4px; letter-spacing:2px; opacity:0.95; }
+.doodles-8{ color:rgba(187,247,208,0.96); }
+
+.chips-8{ display:flex; flex-wrap:wrap; justify-content:center; gap:4px; margin:2px 0 6px; }
+.chip-8{
+  border-radius:999px; border:1px solid rgba(74,222,128,0.85);
+  padding:2px 7px; font-size:7px; background:radial-gradient(circle at top, rgba(21,128,61,0.8), rgba(6,78,59,0.9));
+  color:rgba(236,253,245,0.98); box-shadow:0 0 10px rgba(34,197,94,0.7); white-space:nowrap;
+}
+.meter-8{ margin-top:6px; padding:6px 7px; border-radius:12px; border:1px solid rgba(74,222,128,0.75); background:linear-gradient(120deg, rgba(6,78,59,0.9), rgba(12,148,136,0.9)); font-size:7px; color:rgba(240,253,250,0.96); }
+.meter-8-label{ text-align:center; margin-bottom:4px; opacity:0.9; }
+.meter-8-bar{ display:flex; gap:4px; }
+.meter-8-pill{ flex:1; padding:3px 0; border-radius:999px; text-align:center; background:rgba(15,118,110,0.9); opacity:0.65; }
+.meter-8-pill.active{ opacity:1; box-shadow:0 0 10px rgba(34,197,94,0.9); }
+
+.separator-6,.separator-7,.separator-8{ text-align:center; font-size:8px; margin:6px 0 4px; }
+.separator-6{ color:rgba(248,250,252,0.65); }
+.separator-7{ color:rgba(191,219,254,0.9); }
+.separator-8{ color:rgba(187,247,208,0.9); }
+
+.quote-card-6,.quote-card-7,.quote-card-8{
+  margin-top:6px; padding:7px 9px; border-radius:14px; font-size:8px; font-style:italic; text-align:center;
+}
+.quote-card-6{ border:1px solid rgba(251,113,133,0.75); background:rgba(15,23,42,0.9); box-shadow:0 10px 28px rgba(15,23,42,0.9); color:rgba(249,250,251,0.9); }
+.quote-card-7{ border:1px solid rgba(56,189,248,0.85); background:linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,0.9)); box-shadow:0 10px 28px rgba(15,23,42,0.95); color:rgba(239,246,255,0.98); }
+.quote-card-8{ border:1px solid rgba(34,197,94,0.9); background:linear-gradient(135deg, rgba(15,23,42,0.98), rgba(6,78,59,0.9)); box-shadow:0 10px 30px rgba(6,95,70,0.95); color:rgba(240,253,250,0.98); }
+
+/* estilos especiales día 9 (modal claro) */
+.heart-9{ text-align:center; font-size:26px; margin-bottom:4px; animation:heartbeatHero 1.6s ease-in-out infinite; }
+.doodles-9{ text-align:center; font-size:10px; margin-bottom:4px; letter-spacing:2px; color:#fb7185; opacity:0.9; }
+.separator-9{ text-align:center; font-size:8px; margin:6px 0 4px; color:#fb7185; }
+.body-9 p{ margin-bottom:6px; }
+.body-9-strong{ font-weight:600; color:#b91c1c; }
+.note-9{ margin-top:4px; font-size:8px; color:#9f1239; }
+.quote-card-9{
+  margin-top:8px; padding:8px 10px; border-radius:14px; border:1px solid rgba(248,113,113,0.7);
+  background:rgba(255,255,255,0.96); box-shadow:0 10px 24px rgba(248,113,113,0.25);
+  font-size:8px; font-style:italic; color:#991b1b; text-align:center;
+}
+
+/* botón cerrar */
+.modal.special-6 .modal-close{ border-color:rgba(251,113,133,0.9); color:rgba(248,250,252,0.96); }
+.modal.special-7 .modal-close{ border-color:rgba(56,189,248,0.9); color:rgba(219,234,254,0.98); }
+.modal.special-8 .modal-close{ border-color:rgba(34,197,94,0.9); color:rgba(187,247,208,0.98); }
+.modal-close{
+  margin-top:8px; padding:4px 9px; border-radius:999px; border:1px solid rgba(148,163,253,0.7);
+  background:#020817; color:var(--accent-alt); font-size:8px; cursor:pointer;
+  align-self:flex-end; display:inline-flex; align-items:center; gap:4px;
+}
+.modal-close:hover{ background:radial-gradient(circle at top,rgba(15,23,42,1),rgba(15,23,42,1)); }
+
+@media (min-width:768px){ body{ padding:24px 0; } }
+
+/* ========== AVISO DE FELICITACIÓN (NUEVO) ========== */
+.congrats-overlay{
+  position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255,240,245,0.85), transparent 60%),
+    radial-gradient(circle at 80% 100%, rgba(219,234,254,0.85), transparent 60%),
+    rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  animation: fadeInOverlay 0.35s ease-out;
+}
+@keyframes fadeInOverlay{ from{opacity:0} to{opacity:1} }
+
+.congrats-card{
+  width:min(520px,92vw);
+  border-radius:24px;
+  padding:16px 14px 14px;
+  background:
+    linear-gradient(135deg, #fff1f2, #f0f9ff);
+  border:1px solid rgba(248,113,113,0.55);
+  box-shadow:
+    0 24px 60px rgba(248,113,113,0.28),
+    0 0 0 1px rgba(255,255,255,0.8) inset;
+  position:relative;
+  overflow:hidden;
+}
+
+.congrats-card::before,
+.congrats-card::after{
+  content:"";
+  position:absolute; border-radius:999px; filter:blur(8px); opacity:0.35;
+}
+.congrats-card::before{
+  width:180px; height:180px; top:-70px; right:-60px;
+  background:radial-gradient(circle,#fda4af,transparent 70%);
+}
+.congrats-card::after{
+  width:160px; height:160px; bottom:-60px; left:-40px;
+  background:radial-gradient(circle,#93c5fd,transparent 70%);
+}
+
+/* confetti */
+.confetti{
+  position:absolute; inset:0; pointer-events:none; overflow:hidden;
+}
+.confetti span{
+  position:absolute; font-size:14px; opacity:0.85; animation:pop 1.2s ease-out forwards;
+}
+@keyframes pop{
+  0%{ transform:translateY(10px) scale(0.9); opacity:0 }
+  40%{ transform:translateY(-6px) scale(1.05); opacity:1 }
+  100%{ transform:translateY(0) scale(1); opacity:1 }
+}
+
+.congrats-top{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+}
+.congrats-pill{
+  font-size:10px; padding:4px 10px; border-radius:999px;
+  background:rgba(255,255,255,0.9); border:1px solid rgba(248,113,113,0.55);
+  box-shadow:0 6px 14px rgba(248,113,113,0.18);
+  color:#fb7185;
+}
+
+/* ⬇️ ÚNICO CAMBIO: onclick que elimina el overlay */
+.congrats-close{
+  border:none; background:rgba(255,255,255,0.9);
+  border:1px solid rgba(148,163,184,0.75);
+  width:26px; height:26px; border-radius:999px; cursor:pointer;
+  font-size:14px; display:grid; place-items:center; color:#6b7280;
+  transition: transform .15s ease;
+}
+.congrats-close:hover{ transform:scale(1.05); }
+
+.congrats-heart{
+  font-size:28px; text-align:center; margin:10px 0 6px;
+  animation:heartbeatHero 1.6s ease-in-out infinite;
+}
+
+.congrats-title{
+  text-align:center; font-size:clamp(18px,5vw,22px); font-weight:700; color:#111827;
+  background:linear-gradient(135deg,#fb7185,#a855f7,#38bdf8);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+
+.congrats-sub{
+  text-align:center; margin-top:6px; font-size:10px; color:#374151; line-height:1.6;
+}
+
+.congrats-note{
+  margin-top:10px; font-size:9px; color:#9f1239; text-align:center;
+  background:rgba(255,255,255,0.8); border:1px solid rgba(248,113,113,0.5);
+  border-radius:12px; padding:6px 8px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- corazones de fondo -->
+<div class="floating-hearts">
+  <span>❤</span><span>♡</span><span>❤</span><span>✧</span><span>♡</span><span>❤</span>
+</div>
+
+<!-- ===== AVISO DE FELICITACIÓN (NUEVO) ===== -->
+<div class="congrats-overlay" id="congratsOverlay" role="dialog" aria-modal="true" aria-labelledby="congratsTitle">
+  <div class="congrats-card">
+    <div class="confetti" aria-hidden="true">
+      <span style="left:8%; top:10%;">✨</span>
+      <span style="left:18%; top:22%;">🎉</span>
+      <span style="left:76%; top:18%;">🎊</span>
+      <span style="left:64%; top:8%;">✨</span>
+      <span style="left:12%; top:70%;">⭐</span>
+      <span style="left:82%; top:66%;">💫</span>
+    </div>
+
+    <div class="congrats-top">
+      <div class="congrats-pill">¡Logro conseguido!</div>
+      <!-- ÚNICO CAMBIO: onclick inline -->
+      <button class="congrats-close" id="congratsClose" aria-label="Cerrar"
+              onclick="var el=document.getElementById('congratsOverlay'); if(el){ el.parentNode.removeChild(el); }">✕</button>
+    </div>
+
+    <div class="congrats-heart">🏆</div>
+    <div class="congrats-title" id="congratsTitle">¡Felicitaciones por tu semestre ganado!</div>
+    <p class="congrats-sub">
+      Te admiro por tu constancia y todo lo que diste. <br>
+      Este logro es tuyo y de nadie más. <strong>Orgullito total.</strong> 💖
+    </p>
+    <div class="congrats-note">
+      Pequeño recordatorio: celebra, respira y date un abrazo. Te lo mereces.
+    </div>
+  </div>
+</div>
+<!-- ===== FIN AVISO ===== -->
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero" id="hero">
+    <div class="hero-top">
+      <div class="hero-left-title">
+        <span class="hero-dot"></span>
+        <span>Para Leidy · de mí, Andrés</span>
+      </div>
+      <h1>Un rincón que yo hice <span>solo para ti</span></h1>
+      <p class="hero-subtitle">
+        Yo, Andrés Alarcón, quise guardar aquí todo eso que muchas veces siento y no siempre sé cómo decir por chat.
+        Este es nuestro espacio, para que entres cuando quieras y leas con calma
+        <strong>lo que tú significas para mí</strong>.
+      </p>
+      <p class="hero-note">No tienes que leer todo de una vez. Un mensajito, un respiro, un día a la vez. 💌</p>
+
+      <div class="hero-pills">
+        <div class="hero-pill"><span class="icon">✨</span><span>24 mensajitos pensados por mí, para ti</span></div>
+        <div class="hero-pill"><span class="icon">♡</span><span>Hechos con cariño, paciencia y mucho amor</span></div>
+        <div class="hero-pill"><span class="icon">🌙</span><span>Perfectos para leer de noche, con audífonos</span></div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-mini-header">
+        <span>Para: Leidy 💖</span>
+        <span class="hero-mini-tag">de: Andrés</span>
+      </div>
+      <div class="hero-heart-big">❤️‍🔥</div>
+      <div class="hero-message-preview">
+        Yo no quería que esto fuera solo “otro chat”.<br>
+        Quise dejarte un lugar donde, cada vez que entres, sientas que te estoy abrazando con palabras
+        <strong>aunque no esté a tu lado</strong>.
+      </div>
+      <div class="hero-day-indicator">
+        <div class="hero-day-pill">mensajes guardados</div>
+        <div class="hero-day-pill">se van revelando por días</div>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <button class="hero-btn-primary" id="enterBtn">Entrar a los mensajitos <span>⟶</span></button>
+      <span class="hero-btn-secondary">Lo hice yo, Andrés, pensando en ti. ♡</span>
+    </div>
+  </div>
+
+  <!-- MENSAJES -->
+  <div class="shell messages" id="messagesShell">
+    <div class="messages-header">
+      <div class="messages-title">Estos son los mensajitos que yo te escribí, <span>Leidy</span></div>
+      <p class="messages-subtitle">
+        Desde el 11 de noviembre yo empecé a guardar, día por día, algo que quería decirte.
+        Cada ficha es un pedacito de lo que yo siento por ti.
+      </p>
+      <p class="messages-helper">Toca cualquiera de los días que veas desbloqueados y se abrirá el mensaje que yo escribí para ese día.</p>
+    </div>
+
+    <div class="legend">
+      <span class="legend-item"><span class="legend-dot pink"></span>Días que ya puedes leer</span>
+      <span class="legend-item"><span class="legend-dot gray"></span>Días que todavía estoy reservando</span>
+      <span class="legend-item"><span class="legend-dot special"></span>Días con un toque extra especial ✨</span>
+    </div>
+
+    <div class="grid" id="daysGrid"></div>
+
+    <button class="back-btn" id="backBtn"><span class="icon">⟵</span>Volver a la página principal que yo hice para ti</button>
+
+    <footer>Hecho con cariño por mí, Andrés Alarcón ♡</footer>
+  </div>
+
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modalBox">
+    <div class="modal-day" id="modalDay"></div>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-text" id="modalText"></div>
+    <button class="modal-close" id="closeBtn">⟵ Volver</button>
+  </div>
+</div>
+
+<script>
+const START_DATE="2025-11-11";
+
+const DAYS=[
+  {
+    title:"Empezamos suave",
+    preview:"Solo para que sepas dónde empezó todo...",
+    message:`Día 1
+No era obligatorio que entraras aquí, pero que lo estés haciendo ya dice mucho.
+Solo quería que hoy supieras algo sencillo: desde hace rato eres la parte favorita de mi día.
+Gracias por existir con tu forma de ser tan tú.
+Y sí, esto apenas empieza.`
+  },
+
+  {
+    title:"La verdad",
+    preview:"Confesión técnicamente no autorizada...",
+    message:`Día 2
+Hoy te digo algo sin rodeos: tú no eres un pensamiento pasajero, eres ese recuerdo que aparece solo y me acomoda el día.
+A veces te pienso sin querer, otras veces porque sí, y otras porque simplemente me gustas y ya no me da pena admitirlo.
+No sé qué haces, pero tienes una manera rara y bonita de quedarte en mi mente más de lo normal.
+Y si te soy sincero, cada día me gusta un poquito más que pase eso.`
+  },
+
+  {
+    title:"Versión bonita y de corazón",
+    preview:"Un mensaje tierno…",
+    message:`Día 3
+Hoy quería decirte algo sin chistes ni máscaras: me haces sentir bonito.
+Cada vez que hablamos, algo en mí se calma, como si tu forma de ser tuviera ese efecto que no se explica pero se siente.
+No sé en qué momento te volviste especial para mí, pero ya lo eres, y mucho.
+Gracias por aparecer en mis días así, tan natural y tan tú.`
+  },
+
+  {
+    title:"Cosas que siento",
+    preview:"Te amo demasiado",
+    message:`Día 4
+Hoy no quiero hablar de nada complicado, solo de ti.
+De lo rico que se siente cuando apareces y todo en mi día se acomoda un poquito.
+De cómo tus mensajes me sacan sonrisas tontas y me hacen sentir afortunado por coincidir contigo.
+No sé si te lo digo suficiente, pero me encantas, y me nace cuidar eso tan bonito que estamos construyendo, pasito a pasito, contigo.`
+  },
+
+  {
+    title:"Mini promesa",
+    preview:"Despacito, pero con ganas tuyas",
+    message:`Día 5
+No te voy a vender la idea de que soy perfecto, porque no lo soy.
+Pero contigo sí tengo algo que me nace sin esfuerzo: cuidarte con cariño, respetarte en serio y hacerte sentir que estás con alguien que te quiere de verdad.
+
+He aprendido a que lo que siento por ti no debe correr ni se desesperar… crece a un buen paso, al ritmo en el que los dos nos sintamos cómodos, pero con esa intensidad rica que aparece cuando alguien te importa más de lo que esperabas.
+
+Y no te voy a negar algo:
+hay momentos en los que solo con leerte, con imaginarte cerquita, se me enciende esa mezcla entre cariño y deseo.
+No es solo química… es esa vibra tuya que me atrae y me calma al mismo tiempo.
+
+Quiero algo bonito, sí… pero también algo que nos dé ganas, que nos mueva. Sin prisa, sin presiones, pero con intención real y con eso que tú me provocas cada que te imagino.`
+  },
+
+  {
+    title:"No olvides que te amo mucho, demasiado!",
+    preview:"Eres todo lo que amo.",
+    message:`Día 6
+Mi vida…
+Hoy me pasó algo que me dejó el corazón lleno: apenas abrí los ojos, lo primero que apareció en mi mente fuiste tú. No sé si fue tu voz, tu risa, o esa sensación tan bonita que me dejas… pero me desperté con un deseo fuerte de tenerte cerquita.
+Y sin pensarlo, busqué tus fotos.
+Me quedé mirándote como si fuera la primera vez.
+Es que tu carita, amor… tiene algo que no sé explicar. Hay una ternura tan tuya, tan única, que me detiene. Tu expresión suave, tus labios tan bonitos, esa luz que tienes en la mirada… todo eso me hizo sentir que el día ya valía la pena solo por verte ahí.
+Y tu delineado… qué cosa tan perfecta. Ese trazo al final de tus ojitos te queda tan hermoso que a veces me quedo quieto, solo apreciándolo. Te da una mirada profunda, elegante, llena de encanto. Es imposible no enamorarse de esa forma en la que brillas sin proponértelo.
+Mientras te miraba, sentí algo tan bonito… como si estuviera viendo arte, algo que no cansa, algo que siempre revela un detalle nuevo.
+Tu rostro tiene esa magia: calma, belleza, dulzura, y un toque que solo tú tienes.
+Tu expresión suave, tus labios tan bonitos, esa luz que tienes en la mirada… todo eso me hizo sentir que el día ya valía la pena solo por verte ahí.
+Eres hermosa, mi amor.
+De esas hermosuras que no se explican, solo se sienten. Quería que supieras eso hoy.
+Pero no creas que me gustas solamente por tu físico, me gustas porque te admiro, porque tienes una personalidad tan especial que uno se da cuenta al hablar contigo. Tienes esa forma de pensar, de sentir, de expresarte, de ver el mundo… que me atrapa mucho más que cualquier foto.
+Y tal vez te lo diga muy seguido, pero lo que siento por ti va mucho más allá de esas tres palabras que se dicen en segundos.
+En ti encontré mi lugar bonito, mi paz, mi emoción, mi certeza.
+Lo que siento por ti… es grande, es profundo y real.
+Tú eres esa historia que quiero seguir escribiendo, todos los días, sin prisa y sin final.`
+  },
+
+  {
+    title:"No dudes de mi amor",
+    preview:"Por si algún día dudas...",
+    message:`Día 7
+Si algún día, en medio de tus pensamientos, llegas a preguntarte
+“¿será que sí le importo de verdad?”,
+acuérdate de esto:
+
+Nadie dedica tiempo, energía y cariño a alguien que no le mueve nada.
+Y tú… tú sí me mueves. Mucho más de lo que imaginas.
+
+Me importas de verdad.
+Te pienso más de lo que digo.
+Me nace querer verte, hablarte, escucharte, compartir lo bueno y lo pesado del día.
+Me nace quedarme, sumarte, acompañarte.
+
+Y sí… quiero seguir sumando días contigo.
+Días tranquilos, días intensos, días simples y días bonitos.
+Los que vengan, pero contigo.
+
+Porque lo que siento por ti no es casualidad,
+es intención.
+Es ganas sinceras.
+Es corazón.`
+  },
+
+  {
+    title:"Cuando te pienso",
+    preview:"No es solo que me acuerde de ti...",
+    message:`Día 8
+Hoy solo quiero decirte algo que llevo cargando desde hace días, y que cada vez se me hace más difícil guardar.
+No es que me acuerde de ti de vez en cuando, como quien recuerda un pendiente o una canción vieja.
+No.
+Lo tuyo es distinto.
+
+Mi mente ya te tiene en “acceso rápido”, como si fueras ese pensamiento favorito que aparece sin avisar.
+A veces basta con ver una pareja riendo, una frase bonita, un olor familiar, una canción suave… y puff, apareces tú, cruzándote por mi cabeza como si fuera lo más natural del mundo.
+Y lo gracioso es que no hago nada para que pase. Simplemente, estás ahí.
+
+Y lejos de molestarme, la verdad me encanta.
+Me gusta que mi día se sienta más liviano cada vez que te pienso.
+Me gusta que, sin proponértelo, logras sacarme una sonrisa incluso en mis días más complicados.
+Me gusta esa forma tan tuya de quedarte en mi mente, de instalarte ahí con calma, sin ruido, sin pretensiones… pero con una fuerza que sorprende.
+
+Tú no sabes —o tal vez sí— lo bonito que es sentir esa conexión silenciosa.
+Esa sensación de que, aunque esté ocupado, aunque vaya de un lado a otro, aunque tenga mil cosas encima… de repente aparece tu nombre, tu carita, o algún recuerdo tuyo, y se me ordena el mundo un poquito.
+
+Y no es solo por lo que haces o dices.
+Es por lo que transmites, por la vibra tan linda que tienes, por la forma en que me haces sentir sin siquiera intentarlo.
+Es esa mezcla rara entre calma y emoción que solo tú logras.
+Como si pensar en ti fuera un refugio, pero también una chispa.
+
+Al final, creo que lo que quiero decirte es simple:
+no eres un pensamiento más.
+Eres ese pensamiento que vuelve, que insiste, que acompaña… y que, de alguna manera, le da un color diferente a mis días.
+
+Y si te soy sincero, no quiero que eso cambie.`
+  },
+
+  {
+    title:"Cuando el día no fue tan bonito",
+    preview:"Si hoy no fue tu mejor día, este mensaje es para ti...",
+    message:`Día 9
+Mi amor,
+
+Sé que hoy no fue un buen día y quisiera poder abrazarte ahora mismo para quitarte cada preocupación que llevas dentro. Me duele saber que estás pasando por momentos difíciles, pero quiero que recuerdes algo: nada de esto es permanente. Las cosas van a mejorar, tú vas a estar bien… y tu familia también. Lo creo con todo mi corazón.
+
+Tú eres una mujer increíble, fuerte, noble, de esas que iluminan hasta los días más grises. Y aunque a veces sientas que el mundo pesa demasiado, quiero que sepas que no tienes que cargarlo sola. Cuando necesites apoyo, cuando necesites un lugar seguro, piensa en mí. Estoy aquí, no solo para acompañarte, sino para cuidarte, sostenerte y amarte en tus días buenos… y sobre todo en los difíciles.
+
+Ojalá pudieras verte como yo te veo: alguien que merece todo lo hermoso que la vida puede dar. Y te prometo que no importa lo que pase, voy a estar a tu lado, siempre dispuesto a escucharte, a abrazarte, a recordarte que nunca estás sola.
+
+Te quiero más de lo que mis palabras alcanzan a decir.
+Y hoy, más que nunca, quiero que lo sientas.`
+  },
+
+  {
+    title:"La calma que traes",
+    preview:"Tienes un efecto raro en mí...",
+    message:`Día 10
+Mi amor,
+
+Solo quería escribirte un momento para recordarte lo increíble que eres. Sé que estos días de parciales han sido agotadores, llenos de presión y de esfuerzo, pero también sé que lo has dado todo, como siempre.
+Mañana ya terminas, y quiero que sepas que estoy orgulloso de ti desde ya, sin importar el resultado. Para mí lo importante no es la nota, sino la dedicación tan bonita que le pones a tus sueños.
+
+Quiero que te sientas tranquila, que sueltes ese peso que llevas encima. Ya casi acaba esta semana dura, y después de eso quiero que descanses, que respires profundo y que te des un abrazo por todo lo que has logrado.
+Y si en algún momento te sientes cansada, abrumada o simplemente necesitas un apoyo, aquí estoy yo. Siempre. Para escucharte, para acompañarte y para hacerte sentir que todo va a estar bien.
+
+Te admiro, te quiero y me encanta ver cómo avanzas, incluso cuando tú misma no te das cuenta.
+Ojalá este mensajito te haga sentir un poquito más ligera.`
+  },
+
+  {
+    title:"Lo que no siempre digo",
+    preview:"Después de discutir, seguimos eligiéndonos…",
+    message:`Día 11
+Mi amor,
+
+Hoy no fue un día fácil para nosotros. Empezamos discutiendo, sintiendo ese nudo incómodo en el pecho que dejan los malentendidos, y por un momento quizá los dos nos dejamos llevar por el cansancio, el estrés y todo lo que venimos cargando. Pero aun así, incluso en medio de ese caos chiquito entre nosotros, al hablar en la noche me quedé con algo muy claro: nos hacemos bien.
+
+Me di cuenta de que, aunque tengamos diferencias, tenemos algo que vale muchísimo más: la capacidad de escucharnos, de calmarnos, de buscar soluciones en lugar de quedarnos en el problema. Y eso no es poca cosa. Eso es cariño de verdad, del que construye, del que suma, del que te sostiene cuando estás cansado o cuando el día simplemente no salió como esperabas.
+
+Lo que hablamos esta noche me recordó por qué estamos juntos: porque tú y yo somos un equipo. Porque cuando uno cae, el otro extiende la mano. Porque nos ayudamos a crecer, a pensar mejor, a ser mejores personas; incluso cuando discutimos, lo hacemos desde un lugar donde lo que más queremos es entendernos.
+
+Yo valoro muchísimo lo que tenemos, incluso los días como hoy. Porque los días difíciles también nos enseñan quiénes somos y cómo nos elegimos a pesar de todo. Y yo te elijo. Incluso cuando estamos molestos, incluso cuando estamos cansados, incluso cuando no sabemos qué decir… te elijo, porque sé que contigo hay verdad, hay cariño, hay apoyo, hay ganas de seguir.
+
+Gracias por hablar conmigo, por no dejar que el día terminara mal, por mostrarme que podemos reparar las cosas juntos. Eso dice mucho de ti, de nosotros y de lo que estamos construyendo.
+
+Ojalá mañana sea más suave, más bonito, más ligero para los dos. Pero mientras tanto quiero que te quedes con esto: a pesar de la pelea, a pesar del estrés, a pesar del cansancio, tú y yo nos hacemos bien. Y eso para mí vale más que cualquier discusión.
+
+Te quiero mucho.`
+  },
+
+  {
+    title:"A pesar de todo, vuelvo a ti",
+    preview:"Día con altibajos… pero seguimos eligiéndonos.",
+    message:`Día 12
+Mi amor,
+
+Hoy ha sido un día raro… Nos levantamos peleando, luego estuvimos bien por un momento, y después volvimos a chocar. Y aunque todo eso me dejó con el corazón apretado, también me dejó una verdad muy clara: sigo queriéndote incluso cuando el día se nos enreda, incluso cuando las emociones se nos cruzan y no sabemos muy bien cómo manejarlas.
+
+Sé que hoy los dos hemos estado sensibles, cansados, llenos de cosas en la cabeza. Sé que cada palabra pesa más de lo normal y que, sin querer, terminamos lastimándonos un poco. Pero también sé algo hermoso: cada vez que volvimos a hablar, aunque fuera por unos minutos, sentí esa conexión que tú y yo tenemos… esa forma tan nuestra de volver a encontrarnos incluso cuando estamos molestos.
+
+Y eso, mi amor, no lo tengo con nadie más.
+
+A mí lo que más me importa no es quién tiene la razón, ni quién habló primero ni quién se ofendió más. Lo que me importa eres tú. Lo que me importa es que no quiero que este día termine con dolor en tu pecho ni con distancia entre nosotros. Lo que quiero es que, a pesar de todo, sientas que aquí tienes un compañero que no se rinde, que intenta, que vuelve a tocar la puerta de tu corazón aunque antes se haya cerrado un poquito.
+
+Tal vez hoy fue un día lleno de subidas y bajadas, pero incluso en esas bajadas yo sigo pensando en ti con cariño. Sigo queriendo tomar tu mano y decirte: estamos cansados, sí… pero nos queremos, y eso vale más que cualquier pelea.
+
+Yo no quiero que esto nos desgaste. Quiero que lo hablemos, que nos entendamos, que respiremos un poquito y dejemos que el amor haga lo suyo. Porque a pesar de todo lo que pasó hoy, lo único que siento por ti es amor… un amor que a veces se asusta, que a veces se tropieza, pero que siempre vuelve.
+
+Y aquí estoy, queriendo volver a ti de nuevo.
+
+Y el mensaje del final:“A veces la vida se oscurece un poco, pero siempre vuelve la luz. Las cosas mejorarán, solo tienes que seguir caminando.” — Mario Benedetti`
+  },
+
+  {
+    title:"Detalle silencioso",
+    preview:"Hay cosas que haces que valen oro...",
+    message:`Día 13
+Me fijo en detalles tuyos que quizá ni tú notas.
+Cómo cambias el tono cuando hablas de algo que te emociona,
+cómo escribes cuando estás cansada,
+cómo respondes distinto cuando estás feliz.
+Y entre todo eso hay algo claro: me encanta aprenderte, poco a poco.`
+  },
+
+  {
+    title:"No eres cualquiera",
+    preview:"Por si se te olvida quién eres para mí...",
+    message:`Día 14
+Tú no eres “una persona más” en mi vida.
+No eres un chat más, ni un nombre más en mi lista.
+Eres esa persona que, si no aparece en el día, se siente raro.
+Eres la que quiero que esté, la que me mueve, la que me importa.
+Y eso ya te pone en un lugar diferente dentro de mí.`
+  },
+
+  {
+    title:"Día pesado, pensamiento bonito",
+    preview:"Cuando el día va mal, tú eres mi pausa...",
+    message:`Día 15
+Hay días que vienen llenos de estrés, problemas y cosas que cansan.
+Pero luego te leo, te veo en mi mente, o simplemente recuerdo algo que me dijiste,
+y sin darte cuenta te conviertes en mi ratito de respiro.
+Eres mi pausa bonita en medio de tanto ruido.`
+  },
+
+  {
+    title:"Me encantas tal cual",
+    preview:"No necesito que seas perfecta...",
+    message:`Día 16
+No quiero una versión perfecta de ti, ni una versión editada.
+Me encantas con tus risas, tus enojos, tus dudas, tus enredos y tus silencios.
+Me encantas cuando estás de buenas y cuando estás seria.
+No necesito que cambies nada para que me gustes… porque ya lo haces, tal cual eres.`
+  },
+
+  {
+    title:"Lo que quiero cuidar",
+    preview:"Esto que tenemos no es cualquier cosa...",
+    message:`Día 17
+Lo que tenemos no es algo que quiera tomar a la ligera.
+No es solo hablar por hablar, ni pasar el rato.
+Contigo quiero algo que se sienta bonito, honesto y real.
+Algo que dé ganas de cuidar, incluso en los días en los que cueste un poquito más.
+Y sí, quiero que sea contigo.`
+  },
+
+  {
+    title:"Tus imperfecciones favoritas",
+    preview:"Lo que a ti no te gusta, a mí me encanta...",
+    message:`Día 18
+Esas cosas tuyas que tal vez no te gustan tanto,
+esas manías, inseguridades o rarezas,
+son parte de lo que te hace tú.
+Y yo no quiero que las escondas conmigo.
+Porque también son parte de por qué me encantas como me encantas.`
+  },
+
+  {
+    title:"Si supieras",
+    preview:"No tienes idea de cuánto...",
+    message:`Día 19
+Si supieras cuántas veces en el día me acuerdo de algo que dijiste y sonrío solo,
+cuántas veces reviso si ya respondiste,
+o cuántas ganas me dan de contarte cosas simples de mi día…
+te darías cuenta de que estás mucho más presente de lo que crees.`
+  },
+
+  {
+    title:"Tu nombre en mi día",
+    preview:"Hay nombres que se sienten distinto…",
+    message:`Día 20
+Hay nombres que uno escucha y pasan desapercibidos.
+El tuyo no.
+Tu nombre tiene peso, tiene historia, tiene emoción.
+Leerlo, escucharlo o verlo en mi pantalla cambia el tono de mi día.
+Porque detrás de ese nombre estás tú, y tú ya significas mucho para mí.`
+  },
+
+  {
+    title:"Lo que me imagino",
+    preview:"A veces te pienso más cerca...",
+    message:`Día 21
+No te voy a mentir: a veces te imagino aquí, cerquita.
+Hablando sin afán, riéndonos de cualquier cosa,
+o simplemente compartiendo un silencio cómodo.
+No necesito grandes planes para imaginarme contigo.
+Solo tú, yo, y ese ambiente bonito que se siente cuando estamos bien.`
+  },
+
+  {
+    title:"Gracias por quedarte",
+    preview:"Pudiste no seguir aquí…",
+    message:`Día 22
+Pudiste haberte ido hace rato, responder menos, desconectarte más,
+pero sigues aquí.
+Y eso, aunque no lo diga todo el tiempo, lo valoro un montón.
+Gracias por seguir sumando días conmigo, aunque nadie nos esté cronometrando.`
+  },
+
+  {
+    title:"Lo que ya eres",
+    preview:"Antes de cualquier título, ya importas...",
+    message:`Día 23
+Más allá de cualquier etiqueta o título,
+antes de cualquier “algo”,
+ya eres alguien muy importante para mí.
+Y eso no depende de cómo se llame lo nuestro,
+sino de cómo se siente cuando estás tú en mi vida.`
+  },
+
+  {
+    title:"Un día a la vez",
+    preview:"Sin prisa, pero con intención...",
+    message:`Día 24
+No quiero correr con lo nuestro,
+pero tampoco quiero caminar sin rumbo.
+Prefiero ir un día a la vez,
+con intención bonita, con respeto y con cariño real.
+Que lo que construyamos no sea perfecto,
+pero sí verdadero y muy nuestro.`
+  },
+
+  {
+    title:"Si llegaste hasta aquí",
+    preview:"Es porque algo también te mueve a ti...",
+    message:`Día 25
+Si estás leyendo este mensaje, es porque te tomaste el tiempo de llegar hasta aquí.
+Y solo por eso ya eres especial.
+Ojalá que cada uno de estos días te haya recordado algo:
+que me importas,
+que te pienso,
+y que quiero seguir haciendo que valga la pena estar en tu vida,
+así, un día a la vez contigo.`
+  }
+];
+
+function parseDate(str){const [y,m,d]=str.split("-").map(Number);return new Date(y,m-1,d);}
+function diffDays(from,to){return Math.floor((to-from)/(24*60*60*1000));}
+
+const grid=document.getElementById("daysGrid");
+const overlay=document.getElementById("overlay");
+const modalDay=document.getElementById("modalDay");
+const modalTitle=document.getElementById("modalTitle");
+const modalText=document.getElementById("modalText");
+const closeBtn=document.getElementById("closeBtn");
+const modalBox=document.getElementById("modalBox");
+const hero=document.getElementById("hero");
+const messagesShell=document.getElementById("messagesShell");
+const enterBtn=document.getElementById("enterBtn");
+const backBtn=document.getElementById("backBtn");
+
+/* NUEVO: referencias del aviso de felicitación */
+const congratsOverlay = document.getElementById("congratsOverlay");
+const congratsClose = document.getElementById("congratsClose");
+
+function build(){
+  const start=parseDate(START_DATE);
+  const today=new Date();
+  const elapsed=diffDays(start,today);
+
+  // Desbloqueados 1–12 (índices 0–11)
+  const maxUnlocked = 11;
+
+  DAYS.forEach((d,i)=>{
+    const extraClass =
+      (i===8 ? " special-9" : "") +
+      (i===10 ? " special-11" : "") +
+      (i===11 ? " special-12" : "");
+    const div=document.createElement("div");
+    div.className="day "+(i<=maxUnlocked?"unlocked":"locked")+extraClass;
+    div.innerHTML=
+      "<div class='day-inner'>" +
+      "<div class='day-label'>Día "+(i+1)+"</div>" +
+      "<div class='day-preview'>"+d.preview+"</div>" +
+      "<div class='day-status'>"+(i<=maxUnlocked?"Disponible 💕":"🔒 Bloqueado")+"</div>" +
+      "</div>";
+
+    if(i<=maxUnlocked) div.onclick=()=>openModal(i+1,d);
+    grid.appendChild(div);
+  });
+}
+
+function openModal(n,d){
+  overlay.className = "overlay";
+  modalBox.className = "modal";
+  modalText.className = "modal-text";
+
+  modalDay.textContent="Mensaje del Día "+n;
+  modalTitle.textContent=d.title;
+
+  if(n===6){
+    overlay.classList.add("special-6");
+    modalBox.classList.add("special-6");
+    modalText.classList.add("special-6-text");
+    modalText.innerHTML = `
+      <div class="heart-6">❤</div>
+      <div class="doodles-6">✨ 🌙 ♡ ✨</div>
+      <div class="separator-6">♡ ─── ✦ ─── ♡</div>
+      <div class="body-6">` + d.message.replace(/\n/g,"<br>") + `</div>
+      <div class="separator-6">──────── ✦ ✧ ✦ ────────</div>
+      <div class="quote-card-6">
+        “Eres de esas cosas bonitas que no se explican,<br>solo se sienten. Y yo te siento en todo mi día.”
+      </div>
+    `;
+  } else if(n===7){
+    overlay.classList.add("special-7");
+    modalBox.classList.add("special-7");
+    modalText.classList.add("special-7-text");
+    modalText.innerHTML = `
+      <div class="heart-7">🤍 ✧ 🤍</div>
+      <div class="doodles-7">✦ ✨ pensamientos · certeza · corazón ✨ ✦</div>
+      <div class="separator-7">✧ ──────── ☽ ──────── ✧</div>
+      <div class="body-7">` + d.message.replace(/\n/g,"<br>") + `</div>
+      <div class="separator-7">✦ ──────── ♡ ──────── ✦</div>
+      <div class="quote-card-7">
+        “Si algún día sientes que el día pesa más de lo normal,<br>
+        recuerda que, en algún rincón de mi rutina,<br>
+        siempre hay un pensamiento mío que termina llegando hasta ti.”
+      </div>
+    `;
+  } else if(n===8){
+    overlay.classList.add("special-8");
+    modalBox.classList.add("special-8");
+    modalText.classList.add("special-8-text");
+    modalText.innerHTML = `
+      <div class="heart-8">💚</div>
+      <div class="doodles-8">✦ ☘︎ pensamientos · conexión · calma ✦</div>
+      <div class="separator-8">✧ ──────── ✦ ──────── ✧</div>
+      <div class="body-8">` + d.message.replace(/\n/g,"<br>") + `</div>
+      <div class="separator-8">─────── ✦ 🌿 ✦ ───────</div>
+      <div class="quote-card-8">
+        “Cada vez que apareces en mi mente,<br>
+        el día se siente un poquito más bonito,<br>
+        como si tu nombre pintara de verde<br>
+        todo lo que antes estaba en gris.”
+      </div>
+    `;
+  } else if(n===9){
+    overlay.classList.add("light-overlay");
+    modalBox.classList.add("light-modal");
+    modalText.innerHTML = `
+      <div class="heart-9">💗</div>
+      <div class="doodles-9">☁︎ abrazo · calma · esperanza ☁︎</div>
+      <div class="separator-9">✧ ─────── ♥ ─────── ✧</div>
+      <div class="body-9">` + d.message.replace(/\n/g,"<br>") + `</div>
+      <div class="note-9">Cuando el día se te haga pesado, acuérdate de esto: yo, Andrés, siempre estoy de tu lado, incluso cuando no podamos vernos.</div>
+      <div class="quote-card-9">
+        “Si el mundo te pesa, apóyate en mí.<br>No quiero que lleves sola nada que podamos cargar entre los dos.”
+      </div>
+    `;
+  } else if(n===10){
+    overlay.classList.add("light-overlay");
+    modalBox.classList.add("light-modal");
+    modalText.innerHTML = `
+      <div class="heart-9">💗</div>
+      <div class="doodles-9">☁︎ esfuerzo · constancia · sueños ☁︎</div>
+      <div class="separator-9">✧ ─────── ♥ ─────── ✧</div>
+      <div class="body-9">` + d.message.replace(/\n/g,"<br>") + `</div>
+      <div class="note-9">Pase lo que pase con los parciales, para mí ya eres un orgullo por todo tu esfuerzo y tu corazón.</div>
+      <div class="quote-card-9">
+        “El éxito es la suma de pequeños esfuerzos<br>repetidos día tras día.”<br>— Robert Collier
+      </div>
+    `;
+  } else if(n===11){
+    overlay.classList.add("light-overlay");
+    modalBox.classList.add("light-modal");
+    modalText.innerHTML = `
+      <div class="heart-9">💗</div>
+      <div class="doodles-9">☁︎ escuchar · reparar · equipo ☁︎</div>
+      <div class="separator-9">✧ ─────── ♥ ─────── ✧</div>
+      <div class="body-9">` + d.message.replace(/\n/g,"<br>") + `</div>
+      <div class="quote-card-9">
+        “Al final, todo estará bien. Y si no está bien, es que todavía no es el final.”<br>— Fernando Sabino
+      </div>
+    `;
+  } else if(n===12){
+    overlay.classList.add("light-overlay");
+    modalBox.classList.add("light-modal");
+    modalText.innerHTML = `
+      <div class="heart-9">💗</div>
+      <div class="doodles-9">☁︎ paciencia · perdón · volver ☁︎</div>
+      <div class="separator-9">✧ ─────── ♥ ─────── ✧</div>
+      <div class="body-9">` + d.message.replace(/\n/g,"<br>") + `</div>
+      <div class="quote-card-9">
+        “A veces la vida se oscurece un poco, pero siempre vuelve la luz.<br>
+        Las cosas mejorarán, solo tienes que seguir caminando.”<br>— Mario Benedetti
+      </div>
+    `;
+  } else if(n>=10){
+    overlay.classList.add("light-overlay");
+    modalBox.classList.add("light-modal");
+    modalText.textContent = d.message;
+  } else {
+    modalText.textContent = d.message;
+  }
+
+  overlay.classList.add("active");
+}
+
+closeBtn.onclick=()=>overlay.classList.remove("active");
+overlay.onclick=e=>{if(e.target===overlay)overlay.classList.remove("active");};
+
+enterBtn.onclick=()=>{
+  hero.classList.add("hide");
+  messagesShell.classList.add("active");
+  document.body.classList.add("mode-messages");
+  messagesShell.scrollIntoView({behavior:"smooth",block:"center"});
+};
+
+backBtn.onclick=()=>{
+  messagesShell.classList.remove("active");
+  hero.classList.remove("hide");
+  document.body.classList.remove("mode-messages");
+  hero.scrollIntoView({behavior:"smooth",block:"center"});
+};
+
+build();
+
+/* LÓGICA previa del aviso (la dejo, pero la X ya funciona con el onclick) */
+if (congratsClose && congratsOverlay) {
+  congratsClose.addEventListener('click', ()=> {
+    congratsOverlay.style.display = 'none';
+  });
+}
+</script>
+</body>
+</html>
