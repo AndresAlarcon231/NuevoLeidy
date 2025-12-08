@@ -211,6 +211,74 @@ body.mode-messages{
 .day.special-12 .day-status{ color:#fb7185; font-weight:600; }
 .day.special-12::after{ content:"💌"; position:absolute; top:4px; right:8px; font-size:12px; opacity:0.9; }
 
+/* Día 13 especial - Día de las Velitas */
+.day.special-13{
+  background:linear-gradient(145deg,#fee2e2,#fdf2ff);
+  border-color:rgba(248,113,113,0.9);
+  box-shadow:0 16px 30px rgba(248,113,113,0.35);
+  transform:translateY(0);
+  position:relative;
+  overflow:hidden;
+}
+.day.special-13::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(45deg, 
+    rgba(220, 38, 38, 0.1) 0%,    /* Rojo */
+    rgba(251, 191, 36, 0.1) 25%,  /* Amarillo */
+    rgba(34, 197, 94, 0.1) 50%,   /* Verde */
+    rgba(59, 130, 246, 0.1) 75%,  /* Azul */
+    rgba(220, 38, 38, 0.1) 100%   /* Rojo */
+  );
+  z-index:0;
+}
+.day.special-13 .day-inner{ 
+  background:rgba(255,255,255,0.98); 
+  border-radius:18px; 
+  padding:8px;
+  position:relative;
+  z-index:1;
+}
+.day.special-13 .day-label{ color:#dc2626; font-size:8.5px; font-weight:700; }
+.day.special-13 .day-preview{ color:#b91c1c; font-weight:500; font-size:7.5px; }
+.day.special-13 .day-status{ color:#fb7185; font-weight:600; }
+.day.special-13::after{ 
+  content:"🕯️✨"; 
+  position:absolute; 
+  top:4px; 
+  right:8px; 
+  font-size:12px; 
+  opacity:0.9; 
+  z-index:1;
+}
+
+/* Decoración navideña adicional para el día 13 */
+.day.special-13 .day-inner::before {
+  content:"🎄";
+  position:absolute;
+  left:6px;
+  top:6px;
+  font-size:10px;
+  opacity:0.7;
+  animation:twinkle 2s infinite alternate;
+}
+
+.day.special-13 .day-inner::after {
+  content:"⭐";
+  position:absolute;
+  right:6px;
+  bottom:6px;
+  font-size:9px;
+  opacity:0.7;
+  animation:twinkle 2s infinite alternate-reverse;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.4; transform: scale(1); }
+  100% { opacity: 0.9; transform: scale(1.1); }
+}
+
 /* halo desbloqueadas */
 .day.unlocked::before{
   content:""; position:absolute; inset:-1px; border-radius:inherit;
@@ -354,6 +422,80 @@ footer{ margin-top:10px; font-size:8px; color:#9ca3af; text-align:center; }
   margin-top:8px; padding:8px 10px; border-radius:14px; border:1px solid rgba(248,113,113,0.7);
   background:rgba(255,255,255,0.96); box-shadow:0 10px 24px rgba(248,113,113,0.25);
   font-size:8px; font-style:italic; color:#991b1b; text-align:center;
+}
+
+/* estilos especiales día 13 - Día de las Velitas */
+.heart-13{ text-align:center; font-size:26px; margin-bottom:4px; animation:heartbeatHero 1.6s ease-in-out infinite; }
+.doodles-13{ 
+  text-align:center; 
+  font-size:10px; 
+  margin-bottom:4px; 
+  letter-spacing:2px; 
+  color:#dc2626; 
+  opacity:0.9;
+  background: linear-gradient(90deg, #dc2626, #ea580c, #16a34a, #2563eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.separator-13{ 
+  text-align:center; 
+  font-size:8px; 
+  margin:6px 0 4px; 
+  color:#dc2626;
+}
+.velitas-decor {
+  text-align: center;
+  font-size: 14px;
+  margin: 10px 0;
+  letter-spacing: 8px;
+  color: #fbbf24;
+  animation: velitas-twinkle 1.5s infinite alternate;
+}
+@keyframes velitas-twinkle {
+  0% { opacity: 0.6; text-shadow: 0 0 5px #fbbf24; }
+  100% { opacity: 1; text-shadow: 0 0 15px #fbbf24, 0 0 20px #dc2626; }
+}
+.velitas-words {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 8px 0;
+  font-size: 9px;
+  font-weight: 600;
+}
+.velitas-word {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+.prosperidad { 
+  background: rgba(34, 197, 94, 0.1); 
+  border-color: #16a34a; 
+  color: #16a34a; 
+}
+.alegria { 
+  background: rgba(251, 191, 36, 0.1); 
+  border-color: #ca8a04; 
+  color: #ca8a04; 
+}
+.amor { 
+  background: rgba(220, 38, 38, 0.1); 
+  border-color: #dc2626; 
+  color: #dc2626; 
+}
+.quote-card-13{
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(220, 38, 38, 0.7);
+  background: linear-gradient(135deg, rgba(254, 226, 226, 0.95), rgba(254, 249, 195, 0.95));
+  box-shadow:0 10px 24px rgba(220, 38, 38, 0.25);
+  font-size:8px;
+  font-style:italic;
+  color:#7f1d1d;
+  text-align:center;
+  line-height:1.6;
 }
 
 /* botón cerrar */
@@ -515,7 +657,7 @@ footer{ margin-top:10px; font-size:8px; color:#9ca3af; text-align:center; }
       </div>
       <div class="hero-heart-big">❤️‍🔥</div>
       <div class="hero-message-preview">
-        Yo no quería que esto fuera solo “otro chat”.<br>
+        Yo no quería que esto fuera solo "otro chat".<br>
         Quise dejarte un lugar donde, cada vez que entres, sientas que te estoy abrazando con palabras
         <strong>aunque no esté a tu lado</strong>.
       </div>
@@ -653,7 +795,7 @@ Tú eres esa historia que quiero seguir escribiendo, todos los días, sin prisa 
     preview:"Por si algún día dudas...",
     message:`Día 7
 Si algún día, en medio de tus pensamientos, llegas a preguntarte
-“¿será que sí le importo de verdad?”,
+"¿será que sí le importo de verdad?",
 acuérdate de esto:
 
 Nadie dedica tiempo, energía y cariño a alguien que no le mueve nada.
@@ -683,7 +825,7 @@ No es que me acuerde de ti de vez en cuando, como quien recuerda un pendiente o 
 No.
 Lo tuyo es distinto.
 
-Mi mente ya te tiene en “acceso rápido”, como si fueras ese pensamiento favorito que aparece sin avisar.
+Mi mente ya te tiene en "acceso rápido", como si fueras ese pensamiento favorito que aparece sin avisar.
 A veces basta con ver una pareja riendo, una frase bonita, un olor familiar, una canción suave… y puff, apareces tú, cruzándote por mi cabeza como si fuera lo más natural del mundo.
 Y lo gracioso es que no hago nada para que pase. Simplemente, estás ahí.
 
@@ -782,9 +924,23 @@ Y aquí estoy, queriendo volver a ti de nuevo.`
   },
 
   {
+    title:"Día de las Velitas",
+    preview:"Un mensaje especial para este día de luz...",
+    message:`Mi amor,
+
+Hoy, en este día de las velitas, quise tomarme un momento para escribirte de verdad, como hace rato no lo hacía. Y no ha sido porque no quiera… tú sabes que me encanta escribirte. Simplemente no había podido sentarme con calma, con el corazón tranquilo, para hacerlo como te lo mereces. Pero hoy, con toda esta luz alrededor, sentí que era el momento perfecto.
+
+Este día siempre ha sido especial, pero contigo se siente distinto. Me gusta imaginar que cada velita encendida también ilumina un poquito lo nuestro, todo lo bonito que hemos vivido y todo lo que seguimos construyendo. Ojalá hoy tengas un día lleno de detalles lindos, de momentos suaves, de esas pequeñas cosas que te hacen sonreír sin pensarlo.
+
+Solo quiero que sepas que estoy contigo, aunque sea desde mis palabras. Que te pienso más de lo que imaginas, que me importas muchísimo y que cada día te quiero un poquito más.
+
+Te amo, mi amor.`
+  },
+
+  {
     title:"Detalle silencioso",
     preview:"Hay cosas que haces que valen oro...",
-    message:`Día 13
+    message:`Día 14
 Me fijo en detalles tuyos que quizá ni tú notas.
 Cómo cambias el tono cuando hablas de algo que te emociona,
 cómo escribes cuando estás cansada,
@@ -795,8 +951,8 @@ Y entre todo eso hay algo claro: me encanta aprenderte, poco a poco.`
   {
     title:"No eres cualquiera",
     preview:"Por si se te olvida quién eres para mí...",
-    message:`Día 14
-Tú no eres “una persona más” en mi vida.
+    message:`Día 15
+Tú no eres "una persona más" en mi vida.
 No eres un chat más, ni un nombre más en mi lista.
 Eres esa persona que, si no aparece en el día, se siente raro.
 Eres la que quiero que esté, la que me mueve, la que me importa.
@@ -806,7 +962,7 @@ Y eso ya te pone en un lugar diferente dentro de mí.`
   {
     title:"Día pesado, pensamiento bonito",
     preview:"Cuando el día va mal, tú eres mi pausa...",
-    message:`Día 15
+    message:`Día 16
 Hay días que vienen llenos de estrés, problemas y cosas que cansan.
 Pero luego te leo, te veo en mi mente, o simplemente recuerdo algo que me dijiste,
 y sin darte cuenta te conviertes en mi ratito de respiro.
@@ -816,7 +972,7 @@ Eres mi pausa bonita en medio de tanto ruido.`
   {
     title:"Me encantas tal cual",
     preview:"No necesito que seas perfecta...",
-    message:`Día 16
+    message:`Día 17
 No quiero una versión perfecta de ti, ni una versión editada.
 Me encantas con tus risas, tus enojos, tus dudas, tus enredos y tus silencios.
 Me encantas cuando estás de buenas y cuando estás seria.
@@ -826,7 +982,7 @@ No necesito que cambies nada para que me gustes… porque ya lo haces, tal cual 
   {
     title:"Lo que quiero cuidar",
     preview:"Esto que tenemos no es cualquier cosa...",
-    message:`Día 17
+    message:`Día 18
 Lo que tenemos no es algo que quiera tomar a la ligera.
 No es solo hablar por hablar, ni pasar el rato.
 Contigo quiero algo que se sienta bonito, honesto y real.
@@ -837,7 +993,7 @@ Y sí, quiero que sea contigo.`
   {
     title:"Tus imperfecciones favoritas",
     preview:"Lo que a ti no te gusta, a mí me encanta...",
-    message:`Día 18
+    message:`Día 19
 Esas cosas tuyas que tal vez no te gustan tanto,
 esas manías, inseguridades o rarezas,
 son parte de lo que te hace tú.
@@ -848,7 +1004,7 @@ Porque también son parte de por qué me encantas como me encantas.`
   {
     title:"Si supieras",
     preview:"No tienes idea de cuánto...",
-    message:`Día 19
+    message:`Día 20
 Si supieras cuántas veces en el día me acuerdo de algo que dijiste y sonrío solo,
 cuántas veces reviso si ya respondiste,
 o cuántas ganas me dan de contarte cosas simples de mi día…
@@ -858,7 +1014,7 @@ te darías cuenta de que estás mucho más presente de lo que crees.`
   {
     title:"Tu nombre en mi día",
     preview:"Hay nombres que se sienten distinto…",
-    message:`Día 20
+    message:`Día 21
 Hay nombres que uno escucha y pasan desapercibidos.
 El tuyo no.
 Tu nombre tiene peso, tiene historia, tiene emoción.
@@ -869,7 +1025,7 @@ Porque detrás de ese nombre estás tú, y tú ya significas mucho para mí.`
   {
     title:"Lo que me imagino",
     preview:"A veces te pienso más cerca...",
-    message:`Día 21
+    message:`Día 22
 No te voy a mentir: a veces te imagino aquí, cerquita.
 Hablando sin afán, riéndonos de cualquier cosa,
 o simplemente compartiendo un silencio cómodo.
@@ -880,7 +1036,7 @@ Solo tú, yo, y ese ambiente bonito que se siente cuando estamos bien.`
   {
     title:"Gracias por quedarte",
     preview:"Pudiste no seguir aquí…",
-    message:`Día 22
+    message:`Día 23
 Pudiste haberte ido hace rato, responder menos, desconectarte más,
 pero sigues aquí.
 Y eso, aunque no lo diga todo el tiempo, lo valoro un montón.
@@ -890,9 +1046,9 @@ Gracias por seguir sumando días conmigo, aunque nadie nos esté cronometrando.`
   {
     title:"Lo que ya eres",
     preview:"Antes de cualquier título, ya importas...",
-    message:`Día 23
+    message:`Día 24
 Más allá de cualquier etiqueta o título,
-antes de cualquier “algo”,
+antes de cualquier "algo",
 ya eres alguien muy importante para mí.
 Y eso no depende de cómo se llame lo nuestro,
 sino de cómo se siente cuando estás tú en mi vida.`
@@ -901,7 +1057,7 @@ sino de cómo se siente cuando estás tú en mi vida.`
   {
     title:"Un día a la vez",
     preview:"Sin prisa, pero con intención...",
-    message:`Día 24
+    message:`Día 25
 No quiero correr con lo nuestro,
 pero tampoco quiero caminar sin rumbo.
 Prefiero ir un día a la vez,
@@ -913,7 +1069,7 @@ pero sí verdadero y muy nuestro.`
   {
     title:"Si llegaste hasta aquí",
     preview:"Es porque algo también te mueve a ti...",
-    message:`Día 25
+    message:`Día 26
 Si estás leyendo este mensaje, es porque te tomaste el tiempo de llegar hasta aquí.
 Y solo por eso ya eres especial.
 Ojalá que cada uno de estos días te haya recordado algo:
@@ -948,14 +1104,15 @@ function build(){
   const today=new Date();
   const elapsed=diffDays(start,today);
 
-  // Desbloqueados 1–12 (índices 0–11)
-  const maxUnlocked = 11;
+  // Desbloqueados 1–13 (índices 0–12) - DÍA 13 DESBLOQUEADO
+  const maxUnlocked = 12;
 
   DAYS.forEach((d,i)=>{
     const extraClass =
       (i===8 ? " special-9" : "") +
       (i===10 ? " special-11" : "") +
-      (i===11 ? " special-12" : "");
+      (i===11 ? " special-12" : "") +
+      (i===12 ? " special-13" : "");
     const div=document.createElement("div");
     div.className="day "+(i<=maxUnlocked?"unlocked":"locked")+extraClass;
     div.innerHTML=
@@ -989,7 +1146,7 @@ function openModal(n,d){
       <div class="body-6">` + d.message.replace(/\n/g,"<br>") + `</div>
       <div class="separator-6">──────── ✦ ✧ ✦ ────────</div>
       <div class="quote-card-6">
-        “Eres de esas cosas bonitas que no se explican,<br>solo se sienten. Y yo te siento en todo mi día.”
+        "Eres de esas cosas bonitas que no se explican,<br>solo se sienten. Y yo te siento en todo mi día."
       </div>
     `;
   } else if(n===7){
@@ -1003,9 +1160,9 @@ function openModal(n,d){
       <div class="body-7">` + d.message.replace(/\n/g,"<br>") + `</div>
       <div class="separator-7">✦ ──────── ♡ ──────── ✦</div>
       <div class="quote-card-7">
-        “Si algún día sientes que el día pesa más de lo normal,<br>
+        "Si algún día sientes que el día pesa más de lo normal,<br>
         recuerda que, en algún rincón de mi rutina,<br>
-        siempre hay un pensamiento mío que termina llegando hasta ti.”
+        siempre hay un pensamiento mío que termina llegando hasta ti."
       </div>
     `;
   } else if(n===8){
@@ -1019,10 +1176,10 @@ function openModal(n,d){
       <div class="body-8">` + d.message.replace(/\n/g,"<br>") + `</div>
       <div class="separator-8">─────── ✦ 🌿 ✦ ───────</div>
       <div class="quote-card-8">
-        “Cada vez que apareces en mi mente,<br>
+        "Cada vez que apareces en mi mente,<br>
         el día se siente un poquito más bonito,<br>
         como si tu nombre pintara de verde<br>
-        todo lo que antes estaba en gris.”
+        todo lo que antes estaba en gris."
       </div>
     `;
   } else if(n===9){
@@ -1035,7 +1192,7 @@ function openModal(n,d){
       <div class="body-9">` + d.message.replace(/\n/g,"<br>") + `</div>
       <div class="note-9">Cuando el día se te haga pesado, acuérdate de esto: yo, Andrés, siempre estoy de tu lado, incluso cuando no podamos vernos.</div>
       <div class="quote-card-9">
-        “Si el mundo te pesa, apóyate en mí.<br>No quiero que lleves sola nada que podamos cargar entre los dos.”
+        "Si el mundo te pesa, apóyate en mí.<br>No quiero que lleves sola nada que podamos cargar entre los dos."
       </div>
     `;
   } else if(n===10){
@@ -1048,7 +1205,7 @@ function openModal(n,d){
       <div class="body-9">` + d.message.replace(/\n/g,"<br>") + `</div>
       <div class="note-9">Pase lo que pase con los parciales, para mí ya eres un orgullo por todo tu esfuerzo y tu corazón.</div>
       <div class="quote-card-9">
-        “El éxito es la suma de pequeños esfuerzos<br>repetidos día tras día.”<br>— Robert Collier
+        "El éxito es la suma de pequeños esfuerzos<br>repetidos día tras día."<br>— Robert Collier
       </div>
     `;
   } else if(n===11){
@@ -1060,7 +1217,7 @@ function openModal(n,d){
       <div class="separator-9">✧ ─────── ♥ ─────── ✧</div>
       <div class="body-9">` + d.message.replace(/\n/g,"<br>") + `</div>
       <div class="quote-card-9">
-        “Al final, todo estará bien. Y si no está bien, es que todavía no es el final.”<br>— Fernando Sabino
+        "Al final, todo estará bien. Y si no está bien, es que todavía no es el final."<br>— Fernando Sabino
       </div>
     `;
   } else if(n===12){
@@ -1072,8 +1229,27 @@ function openModal(n,d){
       <div class="separator-9">✧ ─────── ♥ ─────── ✧</div>
       <div class="body-9">` + d.message.replace(/\n/g,"<br>") + `</div>
       <div class="quote-card-9">
-        “A veces la vida se oscurece un poco, pero siempre vuelve la luz.<br>
-        Las cosas mejorarán, solo tienes que seguir caminando.”<br>— Mario Benedetti
+        "A veces la vida se oscurece un poco, pero siempre vuelve la luz.<br>
+        Las cosas mejorarán, solo tienes que seguir caminando."<br>— Mario Benedetti
+      </div>
+    `;
+  } else if(n===13){
+    overlay.classList.add("light-overlay");
+    modalBox.classList.add("light-modal");
+    modalText.innerHTML = `
+      <div class="heart-13">🕯️</div>
+      <div class="velitas-decor">🕯️🕯️🕯️🕯️🕯️</div>
+      <div class="doodles-13">prosperidad - Alegría - Amor</div>
+      <div class="velitas-words">
+        <div class="velitas-word prosperidad">prosperidad</div>
+        <div class="velitas-word alegria">Alegría</div>
+        <div class="velitas-word amor">Amor</div>
+      </div>
+      <div class="separator-13">✧ ─────── ♥ ─────── ✧</div>
+      <div class="body-13">` + d.message.replace(/\n/g,"<br>") + `</div>
+      <div class="quote-card-13">
+        "Aun en los días que parecen apagados, siempre hay una luz que vuelve a encontrar el camino…<br>sobre todo cuando el corazón recuerda por quién late."
+        <br>— L. Álvarez
       </div>
     `;
   } else if(n>=10){
