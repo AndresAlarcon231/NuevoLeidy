@@ -253,6 +253,48 @@ body.mode-messages{
   z-index:1;
 }
 
+/* Día 14 especial - Mensaje especial con corazones */
+.day.special-14{
+  background:linear-gradient(145deg,#fee2e2,#fdf2ff);
+  border-color:rgba(248,113,113,0.9);
+  box-shadow:0 16px 30px rgba(248,113,113,0.35);
+  transform:translateY(0);
+  position:relative;
+  overflow:hidden;
+}
+.day.special-14::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(45deg, 
+    rgba(251, 113, 133, 0.1) 0%,    /* Rosa */
+    rgba(248, 113, 113, 0.1) 25%,  /* Rosa más claro */
+    rgba(244, 114, 182, 0.1) 50%,  /* Rosa morado */
+    rgba(236, 72, 153, 0.1) 75%,   /* Rosa fuerte */
+    rgba(251, 113, 133, 0.1) 100%  /* Rosa */
+  );
+  z-index:0;
+}
+.day.special-14 .day-inner{ 
+  background:rgba(255,255,255,0.98); 
+  border-radius:18px; 
+  padding:8px;
+  position:relative;
+  z-index:1;
+}
+.day.special-14 .day-label{ color:#db2777; font-size:8.5px; font-weight:700; }
+.day.special-14 .day-preview{ color:#b91c1c; font-weight:500; font-size:7.5px; }
+.day.special-14 .day-status{ color:#fb7185; font-weight:600; }
+.day.special-14::after{ 
+  content:"💖✨"; 
+  position:absolute; 
+  top:4px; 
+  right:8px; 
+  font-size:12px; 
+  opacity:0.9; 
+  z-index:1;
+}
+
 /* Decoración navideña adicional para el día 13 */
 .day.special-13 .day-inner::before {
   content:"🎄";
@@ -274,9 +316,35 @@ body.mode-messages{
   animation:twinkle 2s infinite alternate-reverse;
 }
 
+/* Decoración corazón para el día 14 */
+.day.special-14 .day-inner::before {
+  content:"💗";
+  position:absolute;
+  left:6px;
+  top:6px;
+  font-size:10px;
+  opacity:0.7;
+  animation:heartbeat 1.3s infinite alternate;
+}
+
+.day.special-14 .day-inner::after {
+  content:"💝";
+  position:absolute;
+  right:6px;
+  bottom:6px;
+  font-size:9px;
+  opacity:0.7;
+  animation:heartbeat 1.6s infinite alternate-reverse;
+}
+
 @keyframes twinkle {
   0% { opacity: 0.4; transform: scale(1); }
   100% { opacity: 0.9; transform: scale(1.1); }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 0.9; }
 }
 
 /* halo desbloqueadas */
@@ -498,6 +566,80 @@ footer{ margin-top:10px; font-size:8px; color:#9ca3af; text-align:center; }
   line-height:1.6;
 }
 
+/* estilos especiales día 14 - Mensaje especial con corazones */
+.heart-14{ text-align:center; font-size:26px; margin-bottom:4px; animation:heartbeatHero 1.6s ease-in-out infinite; }
+.doodles-14{ 
+  text-align:center; 
+  font-size:10px; 
+  margin-bottom:4px; 
+  letter-spacing:2px; 
+  color:#fb7185; 
+  opacity:0.9;
+  background: linear-gradient(90deg, #fb7185, #f97316, #ec4899, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.separator-14{ 
+  text-align:center; 
+  font-size:8px; 
+  margin:6px 0 4px; 
+  color:#fb7185;
+}
+.corazones-decor {
+  text-align: center;
+  font-size: 14px;
+  margin: 10px 0;
+  letter-spacing: 8px;
+  color: #fb7185;
+  animation: corazones-pulse 1.5s infinite alternate;
+}
+@keyframes corazones-pulse {
+  0% { opacity: 0.6; text-shadow: 0 0 5px #fb7185; }
+  100% { opacity: 1; text-shadow: 0 0 15px #fb7185, 0 0 20px #ec4899; }
+}
+.corazones-words {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 8px 0;
+  font-size: 9px;
+  font-weight: 600;
+}
+.corazones-word {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+.ternura { 
+  background: rgba(251, 113, 133, 0.1); 
+  border-color: #fb7185; 
+  color: #fb7185; 
+}
+.conexion { 
+  background: rgba(244, 114, 182, 0.1); 
+  border-color: #f472b6; 
+  color: #f472b6; 
+}
+.cariño { 
+  background: rgba(236, 72, 153, 0.1); 
+  border-color: #ec4899; 
+  color: #ec4899; 
+}
+.quote-card-14{
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(251, 113, 133, 0.7);
+  background: linear-gradient(135deg, rgba(254, 226, 226, 0.95), rgba(254, 242, 242, 0.95));
+  box-shadow:0 10px 24px rgba(248, 113, 113, 0.25);
+  font-size:8px;
+  font-style:italic;
+  color:#991b1b;
+  text-align:center;
+  line-height:1.6;
+}
+
 /* botón cerrar */
 .modal.special-6 .modal-close{ border-color:rgba(251,113,133,0.9); color:rgba(248,250,252,0.96); }
 .modal.special-7 .modal-close{ border-color:rgba(56,189,248,0.9); color:rgba(219,234,254,0.98); }
@@ -589,42 +731,8 @@ footer{ margin-top:10px; font-size:8px; color:#9ca3af; text-align:center; }
   <span>❤</span><span>♡</span><span>❤</span><span>✧</span><span>♡</span><span>❤</span>
 </div>
 
-<!-- ===== AVISO DE FELICITACIÓN (NUEVO) ===== -->
-<div class="congrats-overlay" id="congratsOverlay" role="dialog" aria-modal="true" aria-labelledby="congratsTitle">
-  <div class="congrats-card">
-    <div class="confetti" aria-hidden="true">
-      <span style="left:8%; top:10%;">✨</span>
-      <span style="left:18%; top:22%;">🎉</span>
-      <span style="left:76%; top:18%;">🎊</span>
-      <span style="left:64%; top:8%;">✨</span>
-      <span style="left:12%; top:70%;">⭐</span>
-      <span style="left:82%; top:66%;">💫</span>
-    </div>
-
-    <div class="congrats-top">
-      <div class="congrats-pill">¡Logro conseguido!</div>
-      <!-- (sin botón X) -->
-    </div>
-
-    <div class="congrats-heart">🏆</div>
-    <div class="congrats-title" id="congratsTitle">¡Felicitaciones por tu semestre ganado!</div>
-    <p class="congrats-sub">
-      Te admiro por tu constancia y todo lo que diste. <br>
-      Este logro es muy merecido. <strong>Estoy muy orgulloso de ti.</strong> 💖
-    </p>
-    <div class="congrats-note">
-      Pequeño recordatorio: celebra, respira y date un abrazo. Te lo mereces.
-    </div>
-
-    <!-- Botón de volver (abajo) -->
-    <div class="congrats-actions">
-      <button class="back-btn" id="congratsClose" onclick="document.getElementById('congratsOverlay').remove();">
-        <span class="icon">⟵</span> Volver a la página
-      </button>
-    </div>
-  </div>
-</div>
-<!-- ===== FIN AVISO ===== -->
+<!-- ===== AVISO DE FELICITACIÓN ELIMINADO ===== -->
+<!-- El aviso de felicitación por el semestre ha sido eliminado según tu solicitud -->
 
 <div class="wrap">
 
@@ -938,9 +1046,27 @@ Te amo, mi amor.`
   },
 
   {
+    title:"Lo que despiertas en mí",
+    preview:"Un mensaje escrito sin prisa, solo con el corazón...",
+    message:`Mi amor,
+
+Hoy quise escribirte sin prisa, con la intención simple de decirte lo que despiertas en mí. A veces las palabras no alcanzan, pero aun así lo intento, porque contigo siempre siento que vale la pena decir lo que llevo dentro.
+
+Cómo siempre digo, eres mucho para mí, hay algo entre nosotros que se siente cercano, real, como si el tiempo y la distancia se hicieran pequeños cuando hablamos. Me gusta cómo llegas a mis pensamientos sin avisar, cómo te vuelves parte de mis días, cómo tu presencia se siente incluso cuando no estás aquí.
+
+Contigo aprendí que el cariño también se construye en los detalles: en las conversaciones largas, en las risas compartidas, en la forma en que nos escuchamos. Hay una conexión bonita, tranquila, que me hace sentir bien y que quiero seguir cuidando.
+
+Quiero que sepas que me importas, que pienso en ti con ternura y que hay un lugar especial para ti en mi corazón. Me gusta imaginar todo lo que aún nos queda por descubrir, lo que puede crecer si seguimos caminando con honestidad y cariño.
+
+Aquí estoy, pensándote, queriéndote, dejando que el amor hable por sí solo. Te amo muchísimo.
+
+Con todo mi cariño, Andrés Alarcón`
+  },
+
+  {
     title:"Detalle silencioso",
     preview:"Hay cosas que haces que valen oro...",
-    message:`Día 14
+    message:`Día 15
 Me fijo en detalles tuyos que quizá ni tú notas.
 Cómo cambias el tono cuando hablas de algo que te emociona,
 cómo escribes cuando estás cansada,
@@ -951,7 +1077,7 @@ Y entre todo eso hay algo claro: me encanta aprenderte, poco a poco.`
   {
     title:"No eres cualquiera",
     preview:"Por si se te olvida quién eres para mí...",
-    message:`Día 15
+    message:`Día 16
 Tú no eres "una persona más" en mi vida.
 No eres un chat más, ni un nombre más en mi lista.
 Eres esa persona que, si no aparece en el día, se siente raro.
@@ -962,7 +1088,7 @@ Y eso ya te pone en un lugar diferente dentro de mí.`
   {
     title:"Día pesado, pensamiento bonito",
     preview:"Cuando el día va mal, tú eres mi pausa...",
-    message:`Día 16
+    message:`Día 17
 Hay días que vienen llenos de estrés, problemas y cosas que cansan.
 Pero luego te leo, te veo en mi mente, o simplemente recuerdo algo que me dijiste,
 y sin darte cuenta te conviertes en mi ratito de respiro.
@@ -972,7 +1098,7 @@ Eres mi pausa bonita en medio de tanto ruido.`
   {
     title:"Me encantas tal cual",
     preview:"No necesito que seas perfecta...",
-    message:`Día 17
+    message:`Día 18
 No quiero una versión perfecta de ti, ni una versión editada.
 Me encantas con tus risas, tus enojos, tus dudas, tus enredos y tus silencios.
 Me encantas cuando estás de buenas y cuando estás seria.
@@ -982,7 +1108,7 @@ No necesito que cambies nada para que me gustes… porque ya lo haces, tal cual 
   {
     title:"Lo que quiero cuidar",
     preview:"Esto que tenemos no es cualquier cosa...",
-    message:`Día 18
+    message:`Día 19
 Lo que tenemos no es algo que quiera tomar a la ligera.
 No es solo hablar por hablar, ni pasar el rato.
 Contigo quiero algo que se sienta bonito, honesto y real.
@@ -993,7 +1119,7 @@ Y sí, quiero que sea contigo.`
   {
     title:"Tus imperfecciones favoritas",
     preview:"Lo que a ti no te gusta, a mí me encanta...",
-    message:`Día 19
+    message:`Día 20
 Esas cosas tuyas que tal vez no te gustan tanto,
 esas manías, inseguridades o rarezas,
 son parte de lo que te hace tú.
@@ -1004,7 +1130,7 @@ Porque también son parte de por qué me encantas como me encantas.`
   {
     title:"Si supieras",
     preview:"No tienes idea de cuánto...",
-    message:`Día 20
+    message:`Día 21
 Si supieras cuántas veces en el día me acuerdo de algo que dijiste y sonrío solo,
 cuántas veces reviso si ya respondiste,
 o cuántas ganas me dan de contarte cosas simples de mi día…
@@ -1014,7 +1140,7 @@ te darías cuenta de que estás mucho más presente de lo que crees.`
   {
     title:"Tu nombre en mi día",
     preview:"Hay nombres que se sienten distinto…",
-    message:`Día 21
+    message:`Día 22
 Hay nombres que uno escucha y pasan desapercibidos.
 El tuyo no.
 Tu nombre tiene peso, tiene historia, tiene emoción.
@@ -1025,7 +1151,7 @@ Porque detrás de ese nombre estás tú, y tú ya significas mucho para mí.`
   {
     title:"Lo que me imagino",
     preview:"A veces te pienso más cerca...",
-    message:`Día 22
+    message:`Día 23
 No te voy a mentir: a veces te imagino aquí, cerquita.
 Hablando sin afán, riéndonos de cualquier cosa,
 o simplemente compartiendo un silencio cómodo.
@@ -1036,7 +1162,7 @@ Solo tú, yo, y ese ambiente bonito que se siente cuando estamos bien.`
   {
     title:"Gracias por quedarte",
     preview:"Pudiste no seguir aquí…",
-    message:`Día 23
+    message:`Día 24
 Pudiste haberte ido hace rato, responder menos, desconectarte más,
 pero sigues aquí.
 Y eso, aunque no lo diga todo el tiempo, lo valoro un montón.
@@ -1046,7 +1172,7 @@ Gracias por seguir sumando días conmigo, aunque nadie nos esté cronometrando.`
   {
     title:"Lo que ya eres",
     preview:"Antes de cualquier título, ya importas...",
-    message:`Día 24
+    message:`Día 25
 Más allá de cualquier etiqueta o título,
 antes de cualquier "algo",
 ya eres alguien muy importante para mí.
@@ -1057,7 +1183,7 @@ sino de cómo se siente cuando estás tú en mi vida.`
   {
     title:"Un día a la vez",
     preview:"Sin prisa, pero con intención...",
-    message:`Día 25
+    message:`Día 26
 No quiero correr con lo nuestro,
 pero tampoco quiero caminar sin rumbo.
 Prefiero ir un día a la vez,
@@ -1069,7 +1195,7 @@ pero sí verdadero y muy nuestro.`
   {
     title:"Si llegaste hasta aquí",
     preview:"Es porque algo también te mueve a ti...",
-    message:`Día 26
+    message:`Día 27
 Si estás leyendo este mensaje, es porque te tomaste el tiempo de llegar hasta aquí.
 Y solo por eso ya eres especial.
 Ojalá que cada uno de estos días te haya recordado algo:
@@ -1095,24 +1221,23 @@ const messagesShell=document.getElementById("messagesShell");
 const enterBtn=document.getElementById("enterBtn");
 const backBtn=document.getElementById("backBtn");
 
-/* AVISO: referencias */
-const congratsOverlay = document.getElementById("congratsOverlay");
-const congratsClose = document.getElementById("congratsClose");
+/* AVISO: referencias ELIMINADAS - Ya no existe el aviso de felicitación */
 
 function build(){
   const start=parseDate(START_DATE);
   const today=new Date();
   const elapsed=diffDays(start,today);
 
-  // Desbloqueados 1–13 (índices 0–12) - DÍA 13 DESBLOQUEADO
-  const maxUnlocked = 12;
+  // Desbloqueados 1–14 (índices 0–13) - DÍA 14 DESBLOQUEADO
+  const maxUnlocked = 13;
 
   DAYS.forEach((d,i)=>{
     const extraClass =
       (i===8 ? " special-9" : "") +
       (i===10 ? " special-11" : "") +
       (i===11 ? " special-12" : "") +
-      (i===12 ? " special-13" : "");
+      (i===12 ? " special-13" : "") +
+      (i===13 ? " special-14" : "");
     const div=document.createElement("div");
     div.className="day "+(i<=maxUnlocked?"unlocked":"locked")+extraClass;
     div.innerHTML=
@@ -1252,6 +1377,25 @@ function openModal(n,d){
         <br>— L. Álvarez
       </div>
     `;
+  } else if(n===14){
+    overlay.classList.add("light-overlay");
+    modalBox.classList.add("light-modal");
+    modalText.innerHTML = `
+      <div class="heart-14">💖</div>
+      <div class="corazones-decor">💖💗💕💓💞</div>
+      <div class="doodles-14">ternura - conexión - cariño</div>
+      <div class="corazones-words">
+        <div class="corazones-word ternura">ternura</div>
+        <div class="corazones-word conexion">conexión</div>
+        <div class="corazones-word cariño">cariño</div>
+      </div>
+      <div class="separator-14">✧ ─────── ♥ ─────── ✧</div>
+      <div class="body-14">` + d.message.replace(/\n/g,"<br>") + `</div>
+      <div class="quote-card-14">
+        "Amar no es mirarse el uno al otro, es mirar juntos en la misma dirección."
+        <br>— Antoine de Saint-Exupéry
+      </div>
+    `;
   } else if(n>=10){
     overlay.classList.add("light-overlay");
     modalBox.classList.add("light-modal");
@@ -1281,13 +1425,6 @@ backBtn.onclick=()=>{
 };
 
 build();
-
-/* Cierre del aviso (abajo): mantiene compatibilidad si JS está deshabilitado */
-if (congratsClose && congratsOverlay) {
-  congratsClose.addEventListener('click', ()=> {
-    congratsOverlay.remove();
-  });
-}
 </script>
 </body>
 </html>
